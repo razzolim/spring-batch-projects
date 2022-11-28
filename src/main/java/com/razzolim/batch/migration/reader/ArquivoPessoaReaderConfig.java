@@ -23,7 +23,6 @@ public class ArquivoPessoaReaderConfig {
                 .delimited()
                 .names("nome", "email", "dataNascimento", "idade", "id")
                 .addComment("--")
-                .targetType(Pessoa.class)
                 .fieldSetMapper(fieldSetMapper())
                 .build();
     }

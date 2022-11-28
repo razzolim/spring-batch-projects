@@ -17,6 +17,7 @@ public class ProcessarEmailProdutoClienteProcessor implements ItemProcessor<Inte
         email.setTo(ipc.getCliente().getEmail());
         email.setSubject("Promoção imperdível!!!");
         email.setText(gerarTextoPromocao(ipc));
+        Thread.sleep(2000); // doing this because email server doesn't handle all request at once
         return email;
     }
 

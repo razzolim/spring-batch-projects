@@ -22,11 +22,11 @@ public class LerInteresseProdutoClienteReaderConfig {
             @Qualifier("appDataSource") DataSource ds) {
         StringBuilder sql = new StringBuilder();
         sql.append("select * from interesse_produto_cliente ");
-        sql.append("join cliente on (cliente = cliente.id ");
+        sql.append("join cliente on (cliente = cliente.id) ");
         sql.append("join produto on (produto = produto.id)");
 
         return new JdbcCursorItemReaderBuilder<InteresseProdutoCliente>()
-                .name("")
+                .name("lerInteresseProdutoClienteReader")
                 .dataSource(ds)
                 .sql(sql.toString())
                 .rowMapper(rowMapper())

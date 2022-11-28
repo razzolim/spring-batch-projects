@@ -7,6 +7,7 @@
 
 For each branch you can find a project. Check the bellow table:
 
-| Name           | Description                                 | Branch-URL                                                                             |
-|----------------|---------------------------------------------|----------------------------------------------------------------------------------------|
-| Data Migration | Data migration from one source DB to other. | [data-migration](https://github.com/razzolim/spring-data-projects/tree/data-migration) |
+| Name           | Description                                 | Branch-URL                                                                                                     |
+|----------------|---------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| Data Migration | Data migration from one source DB to other. | [data-migration](https://github.com/razzolim/spring-data-projects/tree/data-migration)                         |
+| Bill Generator | Generates bill for credit card.             | [bill-credit-card-generator](https://github.com/razzolim/spring-data-projects/tree/bill-credit-card-generator) |

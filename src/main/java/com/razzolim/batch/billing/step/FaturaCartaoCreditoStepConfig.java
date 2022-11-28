@@ -3,6 +3,7 @@ package com.razzolim.batch.billing.step;
 import com.razzolim.batch.billing.domain.FaturaCartaoCredito;
 import com.razzolim.batch.billing.domain.Transacao;
 import com.razzolim.batch.billing.reader.FaturaCartaoCreditoReader;
+import com.razzolim.batch.billing.writer.TotalTransacoesFooterCallback;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemProcessor;
@@ -22,13 +23,15 @@ public class FaturaCartaoCreditoStepConfig {
     public Step faturaCartaoCreditoStep(
             ItemStreamReader<Transacao> lerTransacoesReader,
             ItemProcessor<FaturaCartaoCredito, FaturaCartaoCredito> carregarDadosClienteProcessor,
-            ItemWriter<FaturaCartaoCredito> escreverFaturaCartaoCredito) {
+            ItemWriter<FaturaCartaoCredito> escreverFaturaCartaoCredito,
+            TotalTransacoesFooterCallback totalTransacoesFooterCallback) {
         return stepBuilderFactory
                 .get("faturaCartaoCreditoStep")
                 .<FaturaCartaoCredito, FaturaCartaoCredito>chunk(1)
                 .reader(new FaturaCartaoCreditoReader(lerTransacoesReader))
                 .processor(carregarDadosClienteProcessor)
                 .writer(escreverFaturaCartaoCredito)
+                .listener(totalTransacoesFooterCallback)
                 .build();
     }
 
